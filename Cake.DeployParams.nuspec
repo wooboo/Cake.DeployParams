@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <id>Cake.DeployParams</id>
+	<title>Cake.DeployParams</title>
+    <version>0.1.1</version>
+    <authors>Piotr Zabowka</authors>
+    <owners>Piotr Zabowka</owners>
+    <description>DeployParams extension for Cake.</description>
+    <summary>Adds DeployParams helpers for cake scripts.</summary>
+    <licenseUrl>https://github.com/wooboo/Cake.DeployParams/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/wooboo/Cake.DeployParams</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <copyright>Copyright (c) Piotr Zabowka 2016</copyright>
+    <releaseNotes>Re-added 0.3 changes.</releaseNotes>
+    <tags>Cake Script DeployParams</tags>
+  </metadata>
+  <files>
+		<file src="dist\build\Cake.DeployParams\Cake.DeployParams.dll" target="lib\net45"/>
+  </files>
+</package>
