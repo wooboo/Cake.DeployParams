@@ -3,7 +3,7 @@
   <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <id>Cake.DeployParams</id>
 	<title>Cake.DeployParams</title>
-    <version>0.1.1</version>
+    <version>0.23.0</version>
     <authors>Piotr Zabowka</authors>
     <owners>Piotr Zabowka</owners>
     <description>DeployParams extension for Cake.</description>
@@ -12,10 +12,10 @@
     <projectUrl>https://github.com/wooboo/Cake.DeployParams</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <copyright>Copyright (c) Piotr Zabowka 2016</copyright>
-    <releaseNotes>Re-added 0.3 changes.</releaseNotes>
+    <releaseNotes>Cake.Core 0.23.0 update</releaseNotes>
     <tags>Cake Script DeployParams</tags>
   </metadata>
   <files>
-		<file src="dist\build\Cake.DeployParams\Cake.DeployParams.dll" target="lib\net45"/>
+		<file src="dist\build\Cake.DeployParams\Cake.DeployParams.dll" target="lib\net46"/>
   </files>
 </package>
