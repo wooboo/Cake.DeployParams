@@ -1,5 +1,8 @@
 ﻿namespace Cake.DeployParams.Tests
 {
+    using Cake.Core;
+    using Cake.Core.Diagnostics;
+    using Moq;
     using System.ComponentModel;
     using System.Threading.Tasks;
 
@@ -10,18 +13,21 @@
         [Fact]
         public void Do()
         {
-            var s = new ParametersDefinition();
-            s.Environment("DEV", _ => new { Host = "a" });
+            var cakeEnvMock = new Mock<ICakeEnvironment>();
+            var cakeLogMock = new Mock<ICakeLog>();
 
-            s.Role("APP1", e => new { connectionString = "aaaa" + e.Host + "bbbb" });
+            var s = new ParametersDefinition(cakeEnvMock.Object, cakeLogMock.Object);
+            s.Env("DEV", _ => new { Host = "a" });
+
+            s.Role("APP1", 
+                e => e.Parameter("connectionString", o => $"aaaa{o.Host}bbbb").AsConnectionString(),
+                e => e.Parameter("Host").AsAppSettings()
+                );
 
             var parameters = s.GetParameters("APP1", "DEV");
-            s.AddConnectionStringParameter("connectionString");
-            s.CreateParamsFiles(".");
-            
-            Assert.Equal(parameters.connectionString, "aaaaabbbb");
-            Assert.Equal(parameters.Role, "APP1");
-            Assert.Equal(parameters.Env, "DEV");
+
+            Assert.Equal("aaaaabbbb", parameters["connectionString"]);
+            Assert.Equal("a", parameters["Host"]);
         }
     }
 }

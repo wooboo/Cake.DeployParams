@@ -8,8 +8,8 @@ using Microsoft.Web.Deployment;
 
 namespace Cake.DeployParams
 {
-  public interface IMsDeployManager
-  {
-    DeploymentChangeSummary Deploy(DeploySettings settings);
-  }
+    public interface IMsDeployManager
+    {
+        DeploymentChangeSummary Deploy(DeploySettings settings);
+    }
 }

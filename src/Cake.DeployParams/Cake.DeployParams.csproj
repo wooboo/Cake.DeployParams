@@ -2,7 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net46</TargetFramework>
-    <Version>0.23.2</Version>
+    <Version>0.23.3</Version>
+    <Title>Cake.DeployParams</Title>
     <Description>DeployParams extension for Cake.</Description>
     <Authors>Piotr Zabowka</Authors>
     <Company>PZ Solutions</Company>

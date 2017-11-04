@@ -10,14 +10,14 @@ using Microsoft.Web.Deployment;
 
 namespace Cake.DeployParams
 {
-  [CakeAliasCategory("MsDeploy")]
-  [CakeNamespaceImport("Microsoft.Web.Deployment")]
-  public static class MsDeployAliases
-  {
-    [CakeMethodAlias]
-    public static DeploymentChangeSummary Sync(this ICakeContext context, DeploySettings settings)
+    [CakeAliasCategory("MsDeploy")]
+    [CakeNamespaceImport("Microsoft.Web.Deployment")]
+    public static class MsDeployAliases
     {
-      return new MsDeployManager(context.Environment, context.Log).Deploy(settings);
+        [CakeMethodAlias]
+        public static DeploymentChangeSummary Sync(this ICakeContext context, DeploySettings settings)
+        {
+            return new MsDeployManager(context.Environment, context.Log).Deploy(settings);
+        }
     }
-  }
 }
