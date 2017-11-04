@@ -18,6 +18,7 @@
             var parameters = s.GetParameters("APP1", "DEV");
             s.AddConnectionStringParameter("connectionString");
             s.CreateParamsFiles(".");
+            
             Assert.Equal(parameters.connectionString, "aaaaabbbb");
             Assert.Equal(parameters.Role, "APP1");
             Assert.Equal(parameters.Env, "DEV");
