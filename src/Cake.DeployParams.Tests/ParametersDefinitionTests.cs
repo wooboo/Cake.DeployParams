@@ -3,8 +3,6 @@
     using Cake.Core;
     using Cake.Core.Diagnostics;
     using Moq;
-    using System.ComponentModel;
-    using System.Threading.Tasks;
 
     using Xunit;
 
@@ -19,15 +17,21 @@
             var s = new ParametersDefinition(cakeEnvMock.Object, cakeLogMock.Object);
             s.Env("DEV", _ => new { Host = "a" });
 
-            s.Role("APP1", 
-                e => e.Parameter("connectionString", o => $"aaaa{o.Host}bbbb").AsConnectionString(),
-                e => e.Parameter("Host").AsAppSettings()
+            s.Role("APP1",
+                e => e.ConnectionString("connectionString", o => $"aaaa{o.Host}bbbb"),
+                e => e.AppSettings("Host"),
+                e => e.ConfigSection("Hello.World", p => p.Parameter("abc", o => "abc")),
+                e => e.Parameter("xyz", o => "xyz" + o.Env),
+                e => e.Parameter("xxx", o => "xxx" + o.xyz)
                 );
 
             var parameters = s.GetParameters("APP1", "DEV");
 
             Assert.Equal("aaaaabbbb", parameters["connectionString"]);
             Assert.Equal("a", parameters["Host"]);
+            Assert.Equal("abc", parameters["abc"]);
+            Assert.Equal("xyzDEV", parameters["xyz"]);
+            Assert.Equal("xxxxyzDEV", parameters["xxx"]);
         }
     }
 }
