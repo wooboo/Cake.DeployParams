@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net46</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <Version>0.23.4</Version>
     <Title>Cake.DeployParams</Title>
     <Description>DeployParams extension for Cake.</Description>
